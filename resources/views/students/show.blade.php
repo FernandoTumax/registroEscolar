@@ -11,12 +11,22 @@
             <a class="nav-link" aria-current="true" href="#">{{$bimestre->name}}</a>
           </li>
           @endforeach
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('students.edit', $student)}}">Actualizar Estudiante</a>
+          </li>
+          <li class="nav-item">
+            <form action="{{route('students.destroy', $student)}}" method="POST">
+            @csrf
+            @method('delete')
+            <button class="nav-link">Eliminar Estudiante</button>
+            </form>
+          </li>
       </ul>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h2 class="card-title" >{{$student->name}}</h2>
+      <p class="card-text">{{$student->carnet}}</p>
+      <p class="btn btn-primary">{{$student->year}}</p>
     </div>
 </div>
 @endsection

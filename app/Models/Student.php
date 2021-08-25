@@ -12,10 +12,16 @@ class Student extends Model
 
     protected $guarded = [];
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
     //Relacion de uno a muchos
 
     public function courses(){
         return $this->hasMany(Course::class);
     }
+
 
 }
