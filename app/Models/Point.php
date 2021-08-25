@@ -9,6 +9,14 @@ class Point extends Model
 {
     use HasFactory;
 
-    
+    //Relacion de uno a muchos
+
+    public function bimestres(){
+        return $this->hasMany(Bimestre::class);
+    }
+
+    public function course(){
+        return $this->belongsTo(Course::class);
+    }
 
 }

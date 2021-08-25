@@ -10,6 +10,10 @@ class Student extends Model
     use HasFactory;
 
 
-    
+    //Relacion de uno a muchos
+
+    public function courses(){
+        return $this->hasMany(Course::class);
+    }
 
 }
