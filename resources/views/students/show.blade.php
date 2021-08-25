@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Estudiante '.$student)
+@section('title', 'Estudiante '.$student->name)
     
 @section('content')
 <div class="card text-center mt-4 ms-3 me-3">

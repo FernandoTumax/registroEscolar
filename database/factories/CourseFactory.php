@@ -26,6 +26,7 @@ class CourseFactory extends Factory
     {
         return [
             'name' => $this->faker->word(20),
+            'punteo_final' => $this->faker->numberBetween(0, 100),
             'student_id' => Student::all()->random()->id,
             'bimestre_id' => Bimestre::all()->random()->id,
             

@@ -16,6 +16,7 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('punteo_final');
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('bimestre_id');
             $table->foreign('student_id')->references('id')->on('Students');

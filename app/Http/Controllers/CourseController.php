@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bimestre;
 use App\Models\Course;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -17,28 +19,43 @@ class CourseController extends Controller
         return view('courses.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request, Bimestre $bimestre, Student $student){
 
         $request->validate([
             'name' => 'required'
         ]);
 
-    }
+        $course = new Course();
 
-    public function show(){
-
-    }
-
-    public function edit(){
+        $course->name = $request->name;
+        
+        return $bimestre->id;
 
     }
 
-    public function update(){
+    public function show(Course $course){
+        return view('courses.show', compact('course'));
+    }
+
+    public function edit(Course $course){
+        return view('courses.edit', compact('course'));
+    }
+
+    public function update(Request $request, Course $course){
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $course->update($request->all());
+
+        return redirect()->route('courses.show', $course);
 
     }
 
-    public function destroy(){
+    public function destroy(Course $course){
+        $course->delete();
 
+        return redirect()->route('courses.index');
     }
 
 }
