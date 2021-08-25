@@ -10,6 +10,8 @@ class Student extends Model
     use HasFactory;
 
 
+    protected $guarded = [];
+
     //Relacion de uno a muchos
 
     public function courses(){
