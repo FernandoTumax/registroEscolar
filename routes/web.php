@@ -20,4 +20,3 @@ Route::get('/', HomeController::class)->name('home');
 
 Route::resource('students', StudentController::class);
 Route::resource('bimestres', BimestreController::class);
-

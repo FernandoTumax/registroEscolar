@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bimestre;
+use App\Models\Course;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BimestreController extends Controller
 {
@@ -30,7 +33,11 @@ class BimestreController extends Controller
     }
 
     public function show(Bimestre $bimestre){
-        return view('bimestres.show', compact('bimestre'));
+        $courses = Course::all()->where('bimestre_id', $bimestre->id);
+        // $courses = DB::table('courses')->join('students', 'students.id', '=', '7');
+        
+
+        return view('bimestres.show', compact('bimestre', 'courses'));
     }
 
     public function edit(Bimestre $bimestre){
@@ -51,7 +58,7 @@ class BimestreController extends Controller
     public function destroy(Bimestre $bimestre){
         $bimestre->delete();
 
-        return redirect()->route('bimestres.index');
+        return redirect()->route('home');
     }
 
 }

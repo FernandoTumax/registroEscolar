@@ -12,10 +12,10 @@ class Student extends Model
 
     protected $guarded = [];
 
-    public function getRouteKeyName()
-    {
-        return 'name';
-    }
+    // public function getRouteKeyName()
+    // {
+    //     return 'name';
+    // }
 
     //Relacion de uno a muchos
 
