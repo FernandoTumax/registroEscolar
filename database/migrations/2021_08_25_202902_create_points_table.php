@@ -18,9 +18,9 @@ class CreatePointsTable extends Migration
             $table->integer('punteo');
             $table->date('date');
             $table->unsignedBigInteger('bimestre_id');
-            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('activity_id');
             $table->foreign('bimestre_id')->references('id')->on('Bimestres');
-            $table->foreign('course_id')->references('id')->on('Courses');
+            $table->foreign('activity_id')->references('id')->on('Activities');
             $table->timestamps();
         });
     }

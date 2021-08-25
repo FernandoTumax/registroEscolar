@@ -19,4 +19,8 @@ class Point extends Model
         return $this->belongsTo(Course::class);
     }
 
+    public function activity(){
+        return $this->belongsTo(Activity::class);
+    }
+
 }

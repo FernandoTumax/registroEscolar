@@ -18,10 +18,8 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('bimestre_id');
-            $table->unsignedBigInteger('activity_id');
             $table->foreign('student_id')->references('id')->on('Students');
             $table->foreign('bimestre_id')->references('id')->on('Bimestres');
-            $table->foreign('activity_id')->references('id')->on('activities');
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Activity;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Course;
 
 class ActivityFactory extends Factory
 {
@@ -24,7 +25,8 @@ class ActivityFactory extends Factory
         return [
             'name' => $this->faker->word(20),
             'punteo_neto' => $this->faker->numberBetween(0, 10),
-            'descripcion' => $this->faker->text(200)
+            'descripcion' => $this->faker->text(200),
+            'course_id' => Course::all()->random()->id
         ];
     }
 }

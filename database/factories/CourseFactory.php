@@ -28,7 +28,7 @@ class CourseFactory extends Factory
             'name' => $this->faker->word(20),
             'student_id' => Student::all()->random()->id,
             'bimestre_id' => Bimestre::all()->random()->id,
-            'activity_id' => Activity::all()->random()->id
+            
         ];
     }
 }

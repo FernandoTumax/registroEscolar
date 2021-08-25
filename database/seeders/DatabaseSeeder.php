@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(StudentSeeder::class);
         $this->call(BimestreSeeder::class);
-        Activity::factory(10)->create();
         Course::factory(10)->create();
+        Activity::factory(10)->create();
         Point::factory(10)->create();
     }
 }

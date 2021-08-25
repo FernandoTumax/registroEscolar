@@ -18,6 +18,8 @@ class CreateActivitiesTable extends Migration
             $table->string('name');
             $table->integer('punteo_neto');
             $table->text('descripcion');
+            $table->unsignedBigInteger('course_id');
+            $table->foreign('course_id')->references('id')->on('Courses');
             $table->timestamps();
         });
     }

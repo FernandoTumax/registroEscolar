@@ -6,6 +6,7 @@ use App\Models\Bimestre;
 use App\Models\Course;
 use App\Models\Point;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Activity;
 
 class PointFactory extends Factory
 {
@@ -27,7 +28,8 @@ class PointFactory extends Factory
             'punteo' => $this->faker->numberBetween(0, 100),
             'date' => $this->faker->date('Y-m-d', 'now'),
             'bimestre_id' => Bimestre::all()->random()->id,
-            'course_id' => Course::all()->random()->id
+            'activity_id' => Activity::all()->random()->id,
+            
         ];
     }
 }
