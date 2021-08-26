@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Bimestre;
 use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -43,7 +45,10 @@ class CourseController extends Controller
     }
 
     public function show(Course $course){
-        return view('courses.show', compact('course'));
+
+        $actividades = DB::select('SELECT * FROM Activities WHERE course_id = ?', [$course->id]);
+
+        return view('courses.show', compact('course', 'actividades'));
     }
 
     public function edit(Course $course){

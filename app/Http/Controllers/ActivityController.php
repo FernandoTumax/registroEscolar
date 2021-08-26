@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\Course;
+use App\Models\Point;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ActivityController extends Controller
 {
@@ -14,7 +17,10 @@ class ActivityController extends Controller
     }
 
     public function create(){
-        return view('activities.create');
+
+        $courses = Course::all();
+
+        return view('activities.create', compact('courses'));
     }
 
     public function store(Request $request){
@@ -26,11 +32,24 @@ class ActivityController extends Controller
 
         $activity = Activity::create($request->all());
 
+        $point = new Point();
+
+        $point->punteo = 0;
+        $point->date = date('Y-m-d');
+        $point->bimestre_id = null;
+        $point->activity_id = $activity->id;
+
+        $point->save();
+
         return redirect()->route('activities.show', $activity);
     }
 
     public function show(Activity $activity){
-        return view('activities.show', compact('activity'));
+
+        $points = DB::select('SELECT * FROM Points WHERE activity_id = ?', [$activity->id]);
+
+        
+        return view('activities.show', compact('activity', 'points'));
     }
 
     public function edit(Activity $activity){

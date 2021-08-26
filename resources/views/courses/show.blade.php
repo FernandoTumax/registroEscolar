@@ -23,7 +23,16 @@
       </ul>
     </div>
     <div class="card-body">
-       
+       <div class="list-group">
+        @foreach ($actividades as $activity)
+            <a href="{{route('activities.show', $activity->id)}}" class="list-group-item list-group-item-action" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{$activity->name}}</h5>
+                <small>{{$activity->descripcion}}</small>
+            </div>
+            </a>
+          </div>
+       @endforeach
     </div>
 </div>
 
