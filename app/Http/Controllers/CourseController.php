@@ -16,7 +16,11 @@ class CourseController extends Controller
     }
 
     public function create(){
-        return view('courses.create');
+
+        $bimestres = Bimestre::all();
+        $students = Student::all();
+
+        return view('courses.create', compact('bimestres', 'students'));
     }
 
     public function store(Request $request, Bimestre $bimestre, Student $student){
@@ -28,8 +32,13 @@ class CourseController extends Controller
         $course = new Course();
 
         $course->name = $request->name;
-        
-        return $bimestre->id;
+        $course->punteo_final = 0;
+        $course->bimestre_id = $request->bimestre_id;
+        $course->student_id = $request->student_id;
+
+        $course->save();
+
+        return redirect()->route('courses.show', $course);
 
     }
 
@@ -38,12 +47,16 @@ class CourseController extends Controller
     }
 
     public function edit(Course $course){
-        return view('courses.edit', compact('course'));
+        $bimestres = Bimestre::all();
+        $students = Student::all();
+
+        return view('courses.edit', compact('course', 'bimestres', 'students'));
     }
 
     public function update(Request $request, Course $course){
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'punteo_final' => 'required'
         ]);
 
         $course->update($request->all());
@@ -55,7 +68,7 @@ class CourseController extends Controller
     public function destroy(Course $course){
         $course->delete();
 
-        return redirect()->route('courses.index');
+        return redirect()->route('home');
     }
 
 }

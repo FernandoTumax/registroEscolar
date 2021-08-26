@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BimestreController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,4 @@ Route::get('/', HomeController::class)->name('home');
 
 Route::resource('students', StudentController::class);
 Route::resource('bimestres', BimestreController::class);
+Route::resource('courses', CourseController::class);

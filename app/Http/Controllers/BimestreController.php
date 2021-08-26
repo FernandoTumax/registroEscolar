@@ -33,10 +33,15 @@ class BimestreController extends Controller
     }
 
     public function show(Bimestre $bimestre){
-        $courses = Course::all()->where('bimestre_id', $bimestre->id);
+        //$courses = Course::all()->where('bimestre_id', $bimestre->id);
         // $courses = DB::table('courses')->join('students', 'students.id', '=', '7');
-        
+        $courses = DB::select('SELECT * FROM Courses WHERE bimestre_id = ? AND student_id = ?', [$bimestre->id, 7]);
 
+        foreach ($courses as $course) {
+            $cursos = $course;
+        }
+
+        
         return view('bimestres.show', compact('bimestre', 'courses'));
     }
 
