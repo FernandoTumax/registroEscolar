@@ -4,28 +4,35 @@
 
 @section('content')
 <div class="card mt-4 ms-4 me-4">
-    <h5 class="card-header text-center">Crear Estudiante</h5>
+    <div class="card-header">
+      <h3 class="text-center mt-3">Crear Estudiante</h3>
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('students.index')}}">Regresar</a>
+        </li>
+      </ul>
+    </div>
     <form action="{{route('students.store')}}" method="POST">
 
         @csrf
 
-        <div class="mb-3 ms-3 me-3 mt-3">
-            <label class="form-label">Nombre</label>
+        <div class="form-floating mb-3 ms-3 me-3 mt-3">
             <input type="text" name="name" value="{{old('name')}}" class="form-control" aria-describedby="emailHelp">
+            <label class="floatingTextarea">Nombre</label>
             @error('name')
                 <small>*{{$message}}</small>
             @enderror
           </div>
-          <div class="mb-3 ms-3 me-3">
-            <label class="form-label">Carnet</label>
+          <div class="form-floating mb-3 ms-3 me-3">
             <input type="text" class="form-control" name="carnet" value="{{old('carnet')}}">
+            <label class="floatingTextarea">Carnet</label>
             @error('carnet')
                 <small>*{{$message}}</small>
             @enderror
           </div>   
-          <div class="mb-3 ms-3 me-3">
-            <label class="form-label">Año</label>
+          <div class="form-floating mb-3 ms-3 me-3">
             <input type="date" class="form-control" name="year" value="{{old('year')}}">
+            <label class="floatingTextarea">Año</label>
             @error('year')
                 <small>*{{$message}}</small>
             @enderror

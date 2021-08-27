@@ -3,24 +3,33 @@
 @section('title', 'Home')
     
 @section('content')
-<h1 class="text-center mt-3 mb-3">Pagina principal del director</h1>
-    <div class="mt-3 me-3 ms-3">
-        <ul class="list-group ">
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold mt-1">Bimestres<a href="{{route('bimestres.create')}}" class="ms-4 btn btn-success">Crear Bimestre</a></div>
-              </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold mt-1">Cursos<a href="{{route('courses.create')}}" class="ms-4 btn btn-success">Crear Bimestre</a></div>
-              </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold mt-1">Actividades<a href="{{route('activities.create')}}" class="ms-4 btn btn-success">Crear Bimestre</a></div>
-              </div>
-            </li>
-          </ul>
-    </div>
+<div class="card me-3 ms-3 mt-3">
+  <div class="card-header">
+    <h3 class="text-center mt-3 mb-3">Pagina principal del director</h3>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Elementos del colegio</th>
+          <th scope="col" class="text-center">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Bimestres</th>
+          <td class="text-center"><a href="{{route('bimestres.create')}}" class="btn btn-success">Crear Bimestre</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Cursos</th>
+          <td class="text-center"><a href="{{route('courses.create')}}" class="btn btn-success">Crear Bimestre</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Actividades</th>
+          <td colspan="2" class="text-center"><a href="{{route('activities.create')}}" class="btn btn-success">Crear Bimestre</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 @endsection

@@ -8,7 +8,7 @@
       <ul class="nav nav-tabs card-header-tabs">
           @foreach ($bimestres as $bimestre)
           <li class="nav-item">
-            <a class="nav-link" aria-current="true" href="{{route('bimestres.show', $bimestre)}}">{{$bimestre->name}}</a>
+            <a class="nav-link" aria-current="true" href="{{route('bimestre.mostrar', [$bimestre, $student])}}">{{$bimestre->name}}</a>
           </li>
           @endforeach
           <li class="nav-item">

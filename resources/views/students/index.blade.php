@@ -7,7 +7,7 @@
     <h5 class="card-header text-center">Apartado de los estudiantes</h5>
     <div class="card-body">
         <div class="list-group">
-            <a href="{{route('students.create')}}" class="btn btn-warning mb-3">Crear Estudiante</a>
+            <a href="{{route('students.create')}}" class="btn btn-primary mb-3">Crear Estudiante</a>
             @foreach ($estudiantes as $student)
                 <a href="{{route('students.show', $student)}}" class="list-group-item list-group-item-action" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">

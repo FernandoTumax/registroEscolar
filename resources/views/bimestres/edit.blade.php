@@ -4,7 +4,14 @@
 
 @section('content')
 <div class="card mt-4 ms-4 me-4">
-    <h5 class="card-header text-center">Actualizar Bimestre</h5>
+  <div class="card-header">
+    <h3 class="text-center mt-3">Actualizar Bimestre</h3>
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('students.index')}}">Regresar</a>
+      </li>
+    </ul>
+  </div>
     <form action="{{route('bimestres.update', $bimestre)}}" method="POST">
 
         @csrf

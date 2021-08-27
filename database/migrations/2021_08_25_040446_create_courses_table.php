@@ -17,10 +17,11 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('punteo_final');
-            $table->unsignedBigInteger('student_id');
+            $table->integer('punteo_neto');
+            $table->unsignedBigInteger('student_id')->nullable();
             $table->unsignedBigInteger('bimestre_id');
-            $table->foreign('student_id')->references('id')->on('Students');
-            $table->foreign('bimestre_id')->references('id')->on('Bimestres');
+            $table->foreign('student_id')->references('id')->on('Students')->onDelete('set null');
+            $table->foreign('bimestre_id')->references('id')->on('Bimestres')->onDelete('cascade');
             $table->timestamps();
         });
     }
