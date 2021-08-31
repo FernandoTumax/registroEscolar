@@ -40,7 +40,7 @@
           <div class="form-floating mb-3 ms-3 me-3 mt-3">
             <select class="form-select" name="course_id">
                 @foreach ($courses as $course)
-                    <option value="{{$course->id}}">{{$course->name}} - Bimestre No.{{$course->bimestre_id}}</option>
+                    <option value="{{$course->id}}">{{$course->name}}</option>
                 @endforeach
             </select>
             <label class="floatingTextarea">Curso</label>

@@ -12,6 +12,9 @@
           </li>
           @endforeach
           <li class="nav-item">
+            <a class="nav-link" href="{{route('notas.download', $student)}}">Boletas de Notas</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{route('students.edit', $student)}}">Actualizar Estudiante</a>
           </li>
           <li class="nav-item">

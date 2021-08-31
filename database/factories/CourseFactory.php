@@ -2,8 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Activity;
-use App\Models\Bimestre;
+
 use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -26,10 +25,8 @@ class CourseFactory extends Factory
     {
         return [
             'name' => $this->faker->word(20),
-            'punteo_final' => $this->faker->numberBetween(0, 100),
             'punteo_neto' => $this->faker->numberBetween(0, 100),
             'student_id' => Student::all()->random()->id,
-            'bimestre_id' => Bimestre::all()->random()->id
         ];
     }
 }

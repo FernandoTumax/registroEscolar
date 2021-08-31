@@ -4,6 +4,7 @@ use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\BimestreController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotasController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\StudentController;
 use App\Models\Bimestre;
@@ -35,3 +36,7 @@ Route::put('cursos/{course}', [CourseController::class, 'actualizar'])->name('cu
 Route::resource('activities', ActivityController::class);
 Route::get('actividades/{activity}/{course}/{bimestre}/{student}', [ActivityController::class, 'show'])->name('actividad.mostrar');
 Route::resource('points', PointController::class);
+
+Route::get('/get-all-notas/{student}', [NotasController::class, 'getAllNotas'])->name('notas.mostrar');
+
+Route::get('/download-pdf-notas/{student}', [NotasController::class, 'donwloadPDF'])->name('notas.download');

@@ -24,9 +24,9 @@
             @enderror
           </div>
           <div class="form-floating mb-3 ms-3 me-3 mt-3">
-            <input type="text" name="punteo_final" value="{{old('punteo_final')}}" class="form-control" aria-describedby="emailHelp">
-            <label class="floatingTextarea">Punteo Final</label>
-            @error('punteo_final')
+            <input type="text" name="punteo_neto" value="{{old('punteo_neto')}}" class="form-control" aria-describedby="emailHelp">
+            <label class="floatingTextarea">Punteo Neto</label>
+            @error('punteo_neto')
                 <small>*{{$message}}</small>
             @enderror
           </div>
@@ -37,14 +37,6 @@
                 @endforeach
             </select>
             <label class="floatingTextarea">Estudiante</label>
-          </div>
-          <div class="form-floating mb-3 ms-3 me-3 mt-3">
-            <select class="form-select" name="bimestre_id">
-                @foreach ($bimestres as $bimestre)
-                    <option value="{{$bimestre->id}}">{{$bimestre->name}}</option>
-                @endforeach
-            </select>
-            <label class="floatingTextarea">Bimestre</label>
           </div>
         <button type="submit" class="btn btn-primary mb-3 ms-4 me-4">Guardar Curso</button>
       </form>

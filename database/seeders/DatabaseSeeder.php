@@ -5,7 +5,9 @@ namespace Database\Seeders;
 use App\Models\Activity;
 use App\Models\Bimestre;
 use App\Models\Course;
+use App\Models\Nota;
 use App\Models\Point;
+use App\Models\Punteo;
 use App\Models\Student;
 use Illuminate\Database\Seeder;
 

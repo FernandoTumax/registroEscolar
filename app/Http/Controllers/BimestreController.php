@@ -35,9 +35,26 @@ class BimestreController extends Controller
     public function show(Bimestre $bimestre, Student $student){
         //$courses = Course::all()->where('bimestre_id', $bimestre->id);
         // $courses = DB::table('courses')->join('students', 'students.id', '=', '7');
-        $courses = DB::select('SELECT * FROM Courses WHERE bimestre_id = ? AND student_id = ?', [$bimestre->id, $student->id]);
+        // $courses = DB::select('SELECT * FROM Courses WHERE bimestre_id = ? AND student_id = ?', [$bimestre->id, $student->id]);
 
-        return view('bimestres.show', compact('bimestre', 'courses', 'student'));
+        $coleccionCursos = [];
+
+        $bimestres = Bimestre::with('points')->find($bimestre->id);
+
+        $courses = Course::all()->where('student_id', $student->id);
+
+        // foreach ($courses as $course) {
+        //     foreach ($bimestre->points as $point) {
+        //         if($point->bimestre_id == $bimestre->id && $point->course_id == $course->id) {
+        //             array_push($coleccionCursos, $course, $point);
+        //         }
+        //     }
+            
+        // }
+
+        // return $coleccionCursos;
+
+        return view('bimestres.show', compact('bimestres', 'courses', 'student'));
     }
 
     public function edit(Bimestre $bimestre, Student $student){

@@ -50,6 +50,7 @@ class ActivityController extends Controller
         $point->date = date('Y-m-d');
         $point->bimestre_id = $request->bimestre_id;
         $point->activity_id = $activity->id;
+        $point->course_id = $request->course_id;
 
         $point->save();
 

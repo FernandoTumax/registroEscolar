@@ -29,7 +29,7 @@ class PointFactory extends Factory
             'date' => $this->faker->date('Y-m-d', 'now'),
             'bimestre_id' => Bimestre::all()->random()->id,
             'activity_id' => Activity::all()->random()->id,
-            
+            'course_id' => Course::all()->random()->id,
         ];
     }
 }

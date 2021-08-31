@@ -17,8 +17,8 @@ class Bimestre extends Model
 
     //Relacion de uno a muchos inversa
 
-    public function point(){
-        return $this->belongsTo(Point::class);
+    public function points(){
+        return $this->hasMany(Point::class);
     }
 
 }

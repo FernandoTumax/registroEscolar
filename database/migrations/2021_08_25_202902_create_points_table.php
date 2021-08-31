@@ -17,10 +17,12 @@ class CreatePointsTable extends Migration
             $table->id();
             $table->integer('punteo');
             $table->date('date');
-            $table->unsignedBigInteger('bimestre_id');
-            $table->unsignedBigInteger('activity_id');
-            $table->foreign('bimestre_id')->references('id')->on('Bimestres');
-            $table->foreign('activity_id')->references('id')->on('Activities');
+            $table->unsignedBigInteger('bimestre_id')->nullable();
+            $table->unsignedBigInteger('activity_id')->nullable();
+            $table->unsignedBigInteger('course_id')->nullable();
+            $table->foreign('bimestre_id')->references('id')->on('Bimestres')->onDelete('cascade');
+            $table->foreign('activity_id')->references('id')->on('Activities')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('Courses')->onDelete('cascade');
             $table->timestamps();
         });
     }

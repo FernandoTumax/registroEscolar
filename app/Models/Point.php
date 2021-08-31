@@ -13,8 +13,8 @@ class Point extends Model
 
     //Relacion de uno a muchos
 
-    public function bimestres(){
-        return $this->hasMany(Bimestre::class);
+    public function bimestre(){
+        return $this->belongsTo(Bimestre::class);
     }
 
     public function course(){
@@ -24,5 +24,6 @@ class Point extends Model
     public function activity(){
         return $this->belongsTo(Activity::class);
     }
+
 
 }
